@@ -7,7 +7,9 @@ exports.router = void 0;
 const express_1 = require("express");
 const HomeController_1 = __importDefault(require("../controller/HomeController"));
 const postRouter_1 = require("./postRouter");
+const userRouter_1 = require("./userRouter");
 exports.router = (0, express_1.Router)();
 exports.router.get('/home', HomeController_1.default.showHome);
 exports.router.use('/posts', postRouter_1.postRouter);
+exports.router.use('/users', userRouter_1.userRouter);
 //# sourceMappingURL=router.js.map

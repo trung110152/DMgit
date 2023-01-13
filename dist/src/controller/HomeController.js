@@ -13,7 +13,6 @@ class HomeController {
         };
         this.showFormCreate = async (req, res) => {
             let users = await this.userService.getAll();
-            console.log(users);
             res.render('posts/create', { users: users });
         };
         this.create = async (req, res) => {

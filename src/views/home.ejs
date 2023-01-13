@@ -81,6 +81,7 @@
                         <h5 class="card-title"><%= item.title %></h5>
                         <h6 class="card-text"><%= item.time %></h6>
                         <p class="card-text"><%= item.content %></p>
+                        <p class="card-text">Author: <%= item.user.username %></p>
                         <a href="/posts/edit/<%= item._id %>"  style="color: blue">Edit</a>
                         <a href="/posts/remove/<%= item._id %>"  style="color: red">Remove</a>
                     </div>

@@ -18,7 +18,7 @@ class HomeController {
 
     showFormCreate = async (req: Request, res: Response) => {
         let users = await this.userService.getAll()
-        console.log(users)
+        // console.log(users)
         res.render('posts/create', {users: users});
     }
     create = async (req: Request, res: Response) => {

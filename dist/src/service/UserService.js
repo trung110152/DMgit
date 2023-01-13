@@ -7,6 +7,13 @@ class UserService {
             let users = await user_1.User.find();
             return users;
         };
+        this.checkUser = async (user) => {
+            let userCheck = await user_1.User.findOne({ username: user.username, password: user.password });
+            if (!userCheck) {
+                return null;
+            }
+            return userCheck;
+        };
     }
 }
 exports.default = new UserService();

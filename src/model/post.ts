@@ -4,7 +4,7 @@ export interface IPost {
     title?: string;
     content?: string;
     time?: string;
-    image?: string
+    image?: string;
     user?: IUser;
 }
 

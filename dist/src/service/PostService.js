@@ -4,7 +4,7 @@ const post_1 = require("../model/post");
 class PostService {
     constructor() {
         this.getAll = async () => {
-            let posts = await post_1.Post.find();
+            let posts = await post_1.Post.find().populate('user');
             return posts;
         };
         this.save = async (post) => {

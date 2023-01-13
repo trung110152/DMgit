@@ -74,7 +74,7 @@
     <input type="text" placeholder="Content" name="content">
     <input type="date" placeholder="Time" name="time">
     <input type="file" placeholder="Image" name="image">
-    <input type="text" name="username" value="<%= users[0].username%>" >
+    <input name="user" value="<%= users[0]._id %>"><!--    name là tên của trường cần thêm trong bảng-->
     <button type="submit">To post</button>
 </form>
 <!--JS-->

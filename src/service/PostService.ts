@@ -6,7 +6,8 @@ class PostService {
     }
 
     getAll = async () =>{
-        let posts = await Post.find();
+        let posts = await Post.find().populate('user');
+        // console.log(posts);
         return posts;
     }
 
