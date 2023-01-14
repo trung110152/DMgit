@@ -14,7 +14,7 @@ class HomeController {
             let user = await this.userService.checkUser(req.body);
             if (user) {
                 req.session.User = user;
-                res.redirect('/home');
+                res.redirect('/posts/myPosts');
             }
             else {
                 res.redirect('/users/login');

@@ -12,14 +12,18 @@ class HomeController {
     }
 
     showHome = async (req: Request, res: Response) => {
+        // @ts-ignore
+        // let user = req.session.User
+        // console.log(user)
         let posts = await postService.getAll();
         res.render('home', {posts: posts})
     }
 
     showFormCreate = async (req: Request, res: Response) => {
-        let users = await this.userService.getAll()
-        // console.log(users)
-        res.render('posts/create', {users: users});
+        // @ts-ignore
+        let user = req.session.User  // lấy session của user vừa login
+        // console.log(user)
+        res.render('posts/create', {users: user});
     }
     create = async (req: Request, res: Response) => {
         let post = req.body;
@@ -62,6 +66,19 @@ class HomeController {
         await this.postService.remove(id);
         res.redirect(301, '/home');
     }
+
+    findPost =async (req: Request, res: Response) => {
+       let posts = await this.postService.findByName(req.body);
+        res.render('home', {posts: posts})
+    }
+
+    showMyPosts =async (req: Request, res: Response) => {
+        // @ts-ignore
+        let user = req.session.User;
+        // console.log(user)
+        let posts = await postService.findMyPosts(user);
+        res.render('posts/myPosts', {posts: posts})
+}
 
 }
 

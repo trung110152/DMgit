@@ -26,5 +26,5 @@ app.use(session({
 app.use('',router);
 
 app.listen(3000, () => {
-    console.log('Server is running at http://localhost:3000/home')
+    console.log('Server is running at http://localhost:3000/users/login')
 })

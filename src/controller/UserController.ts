@@ -19,7 +19,7 @@ class HomeController {
         if (user) {
             // @ts-ignore
             req.session.User = user;
-            res.redirect('/home')
+            res.redirect('/posts/myPosts')
         } else {
             res.redirect('/users/login')
         }

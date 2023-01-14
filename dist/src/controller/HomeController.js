@@ -12,8 +12,8 @@ class HomeController {
             res.render('home', { posts: posts });
         };
         this.showFormCreate = async (req, res) => {
-            let users = await this.userService.getAll();
-            res.render('posts/create', { users: users });
+            let user = req.session.User;
+            res.render('posts/create', { users: user });
         };
         this.create = async (req, res) => {
             let post = req.body;
@@ -50,6 +50,15 @@ class HomeController {
             let id = req.params.id;
             await this.postService.remove(id);
             res.redirect(301, '/home');
+        };
+        this.findPost = async (req, res) => {
+            let posts = await this.postService.findByName(req.body);
+            res.render('home', { posts: posts });
+        };
+        this.showMyPosts = async (req, res) => {
+            let user = req.session.User;
+            let posts = await PostService_1.default.findMyPosts(user);
+            res.render('posts/myPosts', { posts: posts });
         };
         this.postService = PostService_1.default;
         this.userService = UserService_1.default;

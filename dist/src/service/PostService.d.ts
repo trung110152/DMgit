@@ -28,6 +28,9 @@ declare class PostService {
     getAll: () => Promise<Omit<import("mongoose").Document<unknown, any, import("../model/post").IPost> & import("../model/post").IPost & {
         _id: import("mongoose").Types.ObjectId;
     }, never>[]>;
+    findMyPosts: (user: any) => Promise<Omit<import("mongoose").Document<unknown, any, import("../model/post").IPost> & import("../model/post").IPost & {
+        _id: import("mongoose").Types.ObjectId;
+    }, never>[]>;
     save: (post: any) => Promise<import("mongoose").Document<unknown, any, import("../model/post").IPost> & import("../model/post").IPost & {
         _id: import("mongoose").Types.ObjectId;
     }>;
@@ -36,6 +39,9 @@ declare class PostService {
         _id: import("mongoose").Types.ObjectId;
     }>;
     private remove;
+    findByName: (search: any) => Promise<(import("mongoose").Document<unknown, any, import("../model/post").IPost> & import("../model/post").IPost & {
+        _id: import("mongoose").Types.ObjectId;
+    })[]>;
 }
 declare const _default: PostService;
 export default _default;

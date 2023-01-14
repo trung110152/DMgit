@@ -10,6 +10,8 @@ declare class HomeController {
     edit: (req: Request, res: Response) => Promise<void>;
     showFormRemove: (req: Request, res: Response) => Promise<void>;
     remove: (req: Request, res: Response) => Promise<void>;
+    findPost: (req: Request, res: Response) => Promise<void>;
+    showMyPosts: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: HomeController;
 export default _default;

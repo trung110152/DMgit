@@ -39,40 +39,56 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="/home">Home</a>
+                    <a class="nav-link" aria-current="page" href="/home">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/posts/create">To Post</a>
+                    <a class="nav-link" href="/posts/create">Đăng tin</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        Dropdown
+                        Quản lý
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="/posts/myPosts">Bài đăng</a></li>
+                        <li><a class="dropdown-item" href="#">Tài khoản</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                    <a class="nav-link disabled">Admin</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<form action="/posts/edit/<%= post._id%>" method="post" enctype="multipart/form-data">
-    <input type="text" placeholder="Title" name="title" value="<%= post.title%>">
-    <input type="text" placeholder="Content" name="content" value="<%= post.content%>">
-    <input type="date" placeholder="Time" name="time" value="<%= post.time%>">
-    <img src="<%= post.image%>">
-    <input type="file" placeholder="Image" name="image" value="<%= post.image%>">
-    <button type="submit">Edit</button>
-</form>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="row mt-2">
+            <% posts.map(item => { %>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="<%= item.image %>" class="card-img-top" alt="...">
+                            <h5 class="card-title"><%= item.title %></h5>
+                            <h6 class="card-text"><%= item.time %></h6>
+                            <p class="card-text"><%= item.content %></p>
+                            <p class="card-text">Author: <%= item.user.username %></p>
+                            <a href="/posts/edit/<%= item._id %>"  style="color: blue">Edit</a>
+                            <a href="/posts/remove/<%= item._id %>"  style="color: red">Remove</a>
+                        </div>
+
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
 
 <!--JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>

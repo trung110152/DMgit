@@ -7,6 +7,10 @@ class PostService {
             let posts = await post_1.Post.find().populate('user');
             return posts;
         };
+        this.findMyPosts = async (user) => {
+            let posts = await post_1.Post.find({ user: user }).populate('user');
+            return posts;
+        };
         this.save = async (post) => {
             return post_1.Post.create(post);
         };
@@ -30,6 +34,13 @@ class PostService {
                 return null;
             }
             return post_1.Post.deleteOne({ _id: id });
+        };
+        this.findByName = async (search) => {
+            let posts = await post_1.Post.find({ title: { $regex: `(.*)${search.search}(.*)` } });
+            if (!posts) {
+                return null;
+            }
+            return posts;
         };
     }
 }

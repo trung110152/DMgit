@@ -9,3 +9,4 @@ postRouter.get('/edit/:id', homeController.showFormEdit);
 postRouter.post('/edit/:id', homeController.edit);
 postRouter.get('/remove/:id', homeController.showFormRemove);
 postRouter.get('/removePost/:id', homeController.remove);
+postRouter.get('/myPosts', homeController.showMyPosts);

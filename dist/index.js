@@ -30,6 +30,6 @@ app.use((0, express_session_1.default)({
 }));
 app.use('', router_1.router);
 app.listen(3000, () => {
-    console.log('Server is running at http://localhost:3000/home');
+    console.log('Server is running at http://localhost:3000/users/login');
 });
 //# sourceMappingURL=index.js.map

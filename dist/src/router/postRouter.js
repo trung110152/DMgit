@@ -13,4 +13,5 @@ exports.postRouter.get('/edit/:id', HomeController_1.default.showFormEdit);
 exports.postRouter.post('/edit/:id', HomeController_1.default.edit);
 exports.postRouter.get('/remove/:id', HomeController_1.default.showFormRemove);
 exports.postRouter.get('/removePost/:id', HomeController_1.default.remove);
+exports.postRouter.get('/myPosts', HomeController_1.default.showMyPosts);
 //# sourceMappingURL=postRouter.js.map
