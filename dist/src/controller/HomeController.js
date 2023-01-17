@@ -43,13 +43,23 @@ class HomeController {
         };
         this.showFormRemove = async (req, res) => {
             let id = req.params.id;
-            await this.postService.remove(id);
             res.render('posts/remove', { id: id });
+        };
+        this.adminFormRemove = async (req, res) => {
+            let id = req.params.id;
+            let user = req.session.User;
+            if (user.username === "TrungCV") {
+                await this.postService.remove(id);
+                res.redirect(301, '/home');
+            }
+            else {
+                res.redirect(301, '/home');
+            }
         };
         this.remove = async (req, res) => {
             let id = req.params.id;
             await this.postService.remove(id);
-            res.redirect(301, '/home');
+            res.redirect(301, '/posts/myPosts');
         };
         this.findPost = async (req, res) => {
             let posts = await this.postService.findByName(req.body);

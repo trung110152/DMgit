@@ -62,16 +62,6 @@
                     </ul>
                 </li>
             </ul>
-            <form action="" method="post">
-                <div class="input-group">
-                    <input type="text" class="form-control" name="search" placeholder="Tìm chủ đề">
-                    <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <button type="submit"><i class="fa fa-search" ></i></button>
-                            </span>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </nav>
@@ -79,18 +69,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="row mt-2">
-            <% posts.map(item => { %>
+            <% users.map(item => { %>
             <div class="col-3">
                 <div class="card">
                     <div class="card-body">
-                        <img src="<%= item.image %>" class="card-img-top" alt="...">
-                        <h5 class="card-title"><%= item.title %></h5>
-                        <h6 class="card-text"><%= item.time %></h6>
-                        <p class="card-text"><%= item.content %></p>
-                        <p class="card-text">Author: <%= item.user.username %></p>
-                        <form action="/home/adminRemove/<%= item._id %>" method="post">
-                            <button type="submit">Remove</button>
+                        <p class="card-text"><%= item.username%></p>
+                        <p class="card-text">Role: <%= item.role%></p>
+                        <form method="post" action="/users/lockUser/<%= item._id %>">
+                            <button type="submit"><%= item.password%></button>
                         </form>
+
                     </div>
 
                 </div>

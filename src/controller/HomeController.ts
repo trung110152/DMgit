@@ -58,13 +58,34 @@ class HomeController {
 
     showFormRemove = async (req: Request, res: Response) => {
         let id = req.params.id
-        await this.postService.remove(id);
         res.render('posts/remove', {id: id});
     }
+
+    adminFormRemove = async (req: Request, res: Response) => {
+        let id = req.params.id;
+        // @ts-ignore
+        let user = req.session.User;
+        // console.log(user)
+        if(user.username === "TrungCV"){
+            await this.postService.remove(id);
+            // res.render('posts/remove', {id: id});
+            res.redirect(301, '/home');
+        } else {
+            res.redirect(301, '/home');
+        }
+
+    }
+
+    // adminRemove = async (req: Request, res: Response) => {
+    //     let id = req.params.id
+    //     await this.postService.remove(id);
+    //     res.redirect(301, '/home');
+    // }
+
     remove = async (req: Request, res: Response) => {
         let id = req.params.id
         await this.postService.remove(id);
-        res.redirect(301, '/home');
+        res.redirect(301, '/posts/myPosts');
     }
 
     findPost =async (req: Request, res: Response) => {

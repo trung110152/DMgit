@@ -10,6 +10,7 @@ const postRouter_1 = require("./postRouter");
 const userRouter_1 = require("./userRouter");
 exports.router = (0, express_1.Router)();
 exports.router.get('/home', HomeController_1.default.showHome);
+exports.router.post('/home/adminRemove/:id', HomeController_1.default.adminFormRemove);
 exports.router.post('/home', HomeController_1.default.findPost);
 exports.router.use('/posts', postRouter_1.postRouter);
 exports.router.use('/users', userRouter_1.userRouter);

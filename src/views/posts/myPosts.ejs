@@ -17,16 +17,10 @@
         }
     </style>
 </head>
-<body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-3">
-            <img src="" alt="" width="100%" height="200px">
-        </div>
-        <div class="col-9">
-            <img src="" alt="" width="100%" height="200px">
-        </div>
-    </div>
+<body style="background-color: black;">
+
+<div >
+    <h1 style="text-align: center; margin-top: 20px;  color: red; letter-spacing: 20px; word-spacing: 10px"> BLOG BA CON ẾCH</h1>
 </div>
 
 <nav class="navbar navbar-expand-lg bg-light">
@@ -55,11 +49,18 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                        <li><a class="dropdown-item" href="/users/logout">Đăng xuất</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Admin</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Admin
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/users/showUsers">Quản lý người dùng</a></li>
+
+                    </ul>
                 </li>
             </ul>
         </div>

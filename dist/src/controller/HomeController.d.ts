@@ -9,6 +9,7 @@ declare class HomeController {
     showFormEdit: (req: Request, res: Response) => Promise<void>;
     edit: (req: Request, res: Response) => Promise<void>;
     showFormRemove: (req: Request, res: Response) => Promise<void>;
+    adminFormRemove: (req: Request, res: Response) => Promise<void>;
     remove: (req: Request, res: Response) => Promise<void>;
     findPost: (req: Request, res: Response) => Promise<void>;
     showMyPosts: (req: Request, res: Response) => Promise<void>;
